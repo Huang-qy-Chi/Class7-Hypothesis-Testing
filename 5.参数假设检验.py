@@ -167,7 +167,7 @@ power
 
 
 
-#Bootstrap版t检验举例：原假设为H0:X=Y=0，备择假设H1：X>Y
+#Bootstrap版t检验举例：原假设为H0:X=Y，备择假设H1:X>Y
 def boot_T(X, Y, alpha = 0.05, B = 1000): #X与Y保证均值相等，否则需要将均值修正到相等
     alpha1 = alpha
     meanX = np.mean(X)
