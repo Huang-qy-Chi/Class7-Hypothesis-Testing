@@ -28,6 +28,18 @@ data2 <- rnorm(100, 0.1, 1)
 ztest2(data2, 0, 1)
 
 ###思考：双侧检验的函数如何实现？
+ztest3 <- function(data, alpha = 0.05, mu0 = 0, sigma0 = 1){
+  alpha1 <- alpha
+  Z <- sqrt(length(data))*(mean(data)-mu0)/sigma0  #正态检验统计量
+  if(Z>qnorm(1 - alpha/2, 0, 1)|Z<qnorm(alpha/2, 0, 1)){     #双边检验，拒绝域包含Z
+    cat("Reject H0 at the significance level of", alpha1, ".")
+  }else{
+    cat("Accept H0 at the significance level of", alpha1,".")
+  }
+}
+ztest3(data2)
+
+
 
 #方差未知的均值t检验
 #以mu>mu0为例，mu0=0
